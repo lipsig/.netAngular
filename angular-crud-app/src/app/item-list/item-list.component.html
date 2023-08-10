@@ -1,0 +1,26 @@
+<h2>Items</h2>
+
+<div *ngFor="let item of items">
+  <div class="item">
+    <span>{{ item.name }}</span>
+    <span>{{ item.description }}</span>
+    <button (click)="editItem(item)">Edit</button>
+    <button (click)="deleteItem(item.id)">Delete</button>
+  </div>
+</div>
+
+<div class="form">
+  <h3>Create Item</h3>
+  <input [(ngModel)]="newItem.name" placeholder="Name">
+  <input [(ngModel)]="newItem.description" placeholder="Description">
+  <button (click)="createItem()">Create</button>
+</div>
+
+<div *ngIf="selectedItem.id">
+  <h3>Edit Item</h3>
+  <div class="form">
+    <input [(ngModel)]="selectedItem.name" placeholder="Name">
+    <input [(ngModel)]="selectedItem.description" placeholder="Description">
+    <button (click)="updateItem()">Update</button>
+  </div>
+</div>
